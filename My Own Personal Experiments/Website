@@ -142,4 +142,99 @@
 </body>
 
 </html>
-    
+
+<pre><code class="sql">
+CREATE DATABASE my_books_db;
+
+USE my_books_db;
+
+CREATE TABLE feedback (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+feedback TEXT NOT NULL,
+submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+</code>
+
+<code class="php">
+// Database credentials
+$host = 'localhost';
+$dbname = 'my_books_db';
+$username = 'root';  // Default MySQL username (adjust if necessary)
+$password = '';  // Default MySQL password (adjust if necessary)
+
+try {
+    // Create PDO connection
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Get form data
+        $name = htmlspecialchars($_POST['name']);
+        $email = htmlspecialchars($_POST['email']);
+        $feedback = htmlspecialchars($_POST['feedback']);
+
+        // Insert feedback into the database
+        $stmt = $pdo->prepare("INSERT INTO feedback (name, email, feedback) VALUES (:name, :email, :feedback)");
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':feedback', $feedback);
+        $stmt->execute();
+
+        // Redirect to thank you page or display a success message
+        echo "Thank you for your feedback!";
+    } else {
+        echo "Invalid request method!";
+    }
+} catch (PDOException $e) {
+    // Handle errors
+    echo "Error: " . $e->getMessage();
+}
+?>
+</code>
+
+<html>
+<form class="feedback-form" action="submit-feedback.php" method="POST">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" placeholder="Your name..." required>
+
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" placeholder="Your email..." required>
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback here..." required></textarea>
+
+    <button type="submit">Submit Feedback</button>
+</form>
+</html>
+
+<code class="php">
+header("Location: thank-you.html");
+exit();
+</code>
+
+<pre><code>
+<?php
+$host = 'localhost';
+$dbname = 'my_books_db';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $pdo->query("SELECT * FROM feedback ORDER BY submitted_at DESC");
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "&lt;div class='feedback-entry'&gt;";
+        echo "&lt;h3&gt;" . htmlspecialchars($row['name']) . " said:&lt;/h3&gt;";
+        echo "&lt;p&gt;" . htmlspecialchars($row['feedback']) . "&lt;/p&gt;";
+        echo "&lt;small&gt;Submitted on: " . $row['submitted_at'] . "&lt;/small&gt;";
+        echo "&lt;/div&gt;&lt;hr&gt;";
+    }
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+?>
+    </code></pre>
