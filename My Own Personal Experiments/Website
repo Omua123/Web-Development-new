@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .book-section,
+        .feedback-section {
+            margin: 2rem 0;
+        }
+
+        .book-content {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .book-content h2 {
+            color: #333;
+        }
+
+        .feedback-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .feedback-form button {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to My Books!</h1>
+        <p>Explore my books and share your feedback</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Book Section -->
+        <section class="book-section">
+            <div class="book-content">
+                <h2>Book Title 1</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia purus nec auctor aliquet.
+                    In eget arcu at sapien hendrerit tristique. Integer nec feugiat nulla. Curabitur varius tempus quam,
+                    at laoreet felis volutpat at.
+                </p>
+                <p>
+                    Sed vulputate arcu et neque consequat, et eleifend justo posuere. Morbi tristique eros vel libero
+                    pretium,
+                    vitae fringilla ante auctor.
+                </p>
+                <p>
+                    Donec feugiat purus ut nunc scelerisque, in accumsan odio dictum. Donec volutpat, ante in vulputate
+                    hendrerit,
+                    augue libero volutpat eros, sit amet malesuada nunc nisi non orci.
+                </p>
+            </div>
+        </section>
+
+        <!-- Feedback Section -->
+        <section class="feedback-section">
+            <h2>We value your feedback!</h2>
+            <p>Let me know your thoughts on this book:</p>
+
+            <form class="feedback-form" action="submit-feedback.php" method="POST">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name..." required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your email..." required>
+
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback here..."
+                    required></textarea>
+
+                <button type="submit">Submit Feedback</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Books | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>
+    
