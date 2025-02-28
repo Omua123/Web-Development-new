@@ -96,44 +96,18 @@
             <div class="book-content">
                 <h2>Book Title 1</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia purus nec auctor aliquet.
-                    In eget arcu at sapien hendrerit tristique. Integer nec feugiat nulla. Curabitur varius tempus quam,
-                    at laoreet felis volutpat at.
+                    ....
                 </p>
                 <p>
-                    Sed vulputate arcu et neque consequat, et eleifend justo posuere. Morbi tristique eros vel libero
-                    pretium,
-                    vitae fringilla ante auctor.
+                    ....
                 </p>
                 <p>
-                    Donec feugiat purus ut nunc scelerisque, in accumsan odio dictum. Donec volutpat, ante in vulputate
-                    hendrerit,
-                    augue libero volutpat eros, sit amet malesuada nunc nisi non orci.
+                    ....
                 </p>
             </div>
         </section>
 
-        <!-- Feedback Section -->
-        <section class="feedback-section">
-            <h2>We value your feedback!</h2>
-            <p>Let me know your thoughts on this book:</p>
-
-            <form class="feedback-form" action="submit-feedback.php" method="POST">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your name..." required>
-
-                <label for="email">Your Email:</label>
-                <input type="email" id="email" name="email" placeholder="Your email..." required>
-
-                <label for="feedback">Your Feedback:</label>
-                <textarea id="feedback" name="feedback" rows="4" placeholder="Write your feedback here..."
-                    required></textarea>
-
-                <button type="submit">Submit Feedback</button>
-            </form>
-        </section>
-
-    </div>
+</div>
 
     <footer>
         <p>&copy; 2025 My Books | All Rights Reserved</p>
@@ -195,6 +169,7 @@ try {
 </code>
 
 <html>
+    <!--Feedback Section-->
 <form class="feedback-form" action="submit-feedback.php" method="POST">
     <label for="name">Your Name:</label>
     <input type="text" id="name" name="name" placeholder="Your name..." required>
@@ -208,14 +183,12 @@ try {
     <button type="submit">Submit Feedback</button>
 </form>
 </html>
+<!--Feedback Ends Here-->
 
 <code class="php">
 header("Location: thank-you.html");
 exit();
-</code>
 
-<pre><code>
-<?php
 $host = 'localhost';
 $dbname = 'my_books_db';
 $username = 'root';
@@ -237,4 +210,4 @@ try {
     echo "Error: " . $e->getMessage();
 }
 ?>
-    </code></pre>
+    </code>
