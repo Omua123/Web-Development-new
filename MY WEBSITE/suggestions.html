@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions - KMV Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #d8a7ff; /* Light purple */
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #6a3cbc; /* Darker purple */
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #d8a7ff; /* Light purple on hover */
+        }
+        .content {
+            padding: 20px;
+        }
+        .content h2 {
+            color: #6a3cbc; /* Darker purple */
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .form-container button {
+            background-color: #6a3cbc; /* Dark purple */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #d8a7ff; /* Light purple */
+        }
+        .suggestions-list {
+            margin-top: 40px;
+        }
+        .suggestions-list h3 {
+            color: #6a3cbc;
+        }
+        .suggestion-item {
+            background-color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>KMV Library - Suggestions</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="books.html">Books</a>
+        <a href="genres.html">Genres</a>
+        <a href="community.html">Community</a>
+        <a href="suggestions.html">Suggestions</a>
+    </nav>
+
+    <div class="content">
+        <h2>We Value Your Suggestions!</h2>
+        <p>Have a book suggestion or idea you'd like to share with us? Fill out the form below and let us know!</p>
+
+        <!-- Suggestion Form -->
+        <div class="form-container">
+            <form action="#" method="POST">
+                <label for="name">Your Name (Optional):</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" />
+
+                <label for="suggestion">Your Suggestion:</label>
+                <textarea id="suggestion" name="suggestion" rows="4" placeholder="Enter your suggestion here..." required></textarea>
+
+                <button type="submit">Submit Suggestion</button>
+            </form>
+        </div>
+
+        <!-- Suggested Books or Ideas Section -->
+        <div class="suggestions-list">
+            <h3>Recently Suggested Ideas</h3>
+
+            <!-- Example of Suggested Ideas (this would be dynamically generated if implemented) -->
+            <div class="suggestion-item">
+                <p><strong>Book Title: </strong>....</p>
+                <p><strong>Suggested by: </strong>Anonymous</p>
+                <p><strong>Suggestion: </strong>...</p>
+            </div>
+            <div class="suggestion-item">
+                <p><strong>Book Title: </strong>...</p>
+                <p><strong>Suggested by: </strong>Anonymous</p>
+                <p><strong>Suggestion: </strong>...</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
