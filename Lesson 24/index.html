@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>DOM!!! and External JavaScript</title>
+</head>
+
+<body>
+    <h1 id="one">Welcome</h1>
+    <p>This is the welcome message.</p>
+    <h2>Technology</h2>
+    <p>This is the technology section.</p>
+
+    <script>
+        var text = document.getElementById("one").innerHTML;
+        alert("The first heading is " + text);
+    </script>
+
+    <p>Adding JS as seperate file</p>
+    <button type="button" onclick="myFunction()">Click Me!</button>
+
+    <p id="demo"></p>
+    <script src="script.js">
+    </script>
+
+</body>
+</html>
