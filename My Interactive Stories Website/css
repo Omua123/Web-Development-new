@@ -1,0 +1,17 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #f0f0f0;
+  padding: 2em;
+}
+
+#story {
+  background: white;
+  padding: 1em;
+  border: 1px solid #ccc;
+  max-width: 600px;
+  margin: auto;
+}
+
+button {
+  margin: 0.5em;
+}
