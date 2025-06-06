@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Number Sort</h2>
+    <p>Click either button to sort the array in ascending or descending order.</p>
+
+    <button onclick="ascending()">Ascending Order</button>
+    <button onclick="descending()">Descending Order</button>
+    <p id="product_value"></p>
+
+    <script>
+        var numbers = [25, 12, 19, 94];
+
+        function myFunction(num) {
+            return num * 10;
+        }
+
+        var newarray = numbers.map(myFunction);
+
+        document.getElementById("product_value").innerHTML = "The mapped values are: " + newarray;
+
+        function ascending() {
+            newarray.sort(function (a, b) { return a - b });
+            document.getElementById("product_value").innerHTML = "The ascending order of the mapped values is: " + newarray;
+        }
+
+        function descending() {
+            newarray.sort(function (a, b) { return b - a });
+            document.getElementById("product_value").innerHTML = "The descending order of the mapped values is: " + newarray;
+        }
+    </script>
+</body>
+</html>
