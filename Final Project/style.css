@@ -1,0 +1,57 @@
+/* Global Properties */
+html {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #252525;
+    font-family: "Baloo Tamma 2", cursive;
+}
+
+/* Main Heading Font */
+.m-heading {
+    font-family: "Roboto Slab", serif;
+}
+
+/* Navigation */
+.navigation-link {
+    border: 2px solid transparent;
+}
+
+.navigation-link:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #f5ba09;
+    transition: 0.5s ease;
+}
+
+/* Main Container Height */
+.main-container {
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('1.png');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Aligning items in main row */
+.main_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Changig Name Font size */
+.main_row h1 {
+    font-size: 5rem;
+}
+
+/* Making the main image the size of the screen */
+.main_row img {
+    width: auto;
+    height: 100vh;
+}
