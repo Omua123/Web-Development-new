@@ -55,3 +55,13 @@ body {
     width: auto;
     height: 100vh;
 }
+
+/* About Section */
+.about {
+    background: #313552;
+    border-radius: 0.5rem;
+}
+
+.card {
+    border-bottom: 8px solid #f5ba09;
+}
