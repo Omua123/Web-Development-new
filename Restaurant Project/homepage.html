@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <script src="homepage.js"></script>
     <header>
         <h1>Delicious Bites</h1>
     </header>
@@ -17,12 +16,12 @@
     <nav>
         <a href="homepage.html">Home</a>
         <a href="about.html">About</a>
-        <a href="menu.html">Menu</a>
         <a href="contact.html">Contact</a>
     </nav>
 
     <div class="content">
-        <h2>Welcome to Delicious Bites!</h2>
+        <h1>Welcome to Delicious Bites!</h1>
+        <h3>Where Every Bite Tells a Story</h3>
         <p>At Delicious Bites, we serve mouthwatering dishes crafted with love and the freshest ingredients. Join us for an unforgettable dining experience!</p>
     </div>
 
@@ -30,10 +29,22 @@
 
     <div id="sidebar" class="sidebar hidden">
         <button id="closeSidebar">✖</button>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <img src="logo.png" alt="Delicious Bites Logo" class="sidebar-logo">
+        <div class="promo">
+            <h2>🔥 Today's Special</h2>
+            <p>Grilled Lemon Herb Salmon</p>
+            <p><strong>Only $14.99!</strong></p>
+            <p>Served with roasted vegetables and garlic butter sauce.</p>
+        </div>
+        
+        <hr>
+        
+        <div class="cta">
+            <h2>🍽️ Make It Happen</h2>
+            <a href="reservation.html" class="cta-button">📅 Book a Table</a><br>
+            <a href="order.html" class="cta-button">🛍️ Order Online</a><br>
+            <a href="menu.html" class="cta-button">📖 View Full Menu</a>
+        </div>
     </div>
 
     <div class="content">
@@ -43,15 +54,14 @@
             <div class="food">
                 <img src="salmon.jpg" alt="Salmon">
                 <div class="food-details">
-                    <a href="salmon.html">Salmon</a>
+                    <a href="salmon.html">Grilled Lemon Herb Salmon</a>
                 </div>
             </div>
             
             <div class="food">
-                <img src="..." alt="Food 2">
+                <img src="pasta.jpg" alt="Pasta">
                 <div class="food-details">
-                    <h3>Food 2</h3>
-                    <p>Click to find out more</p>
+                    <a href="pasta.html">Creamy Alfredo Pasta</a>
                 </div>
             </div>
             
@@ -71,5 +81,6 @@
                 </div>
             </div>
             <!-- Add more meals as needed -->
+            <script src="homepage.js"></script>
 </body>
 </html>
