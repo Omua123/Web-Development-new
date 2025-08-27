@@ -1,165 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact - Delicious Bites</title>
 
-        <style>
-             body {
-     background-color: rgb(0, 0, 0);
-     background-image: url("logo.png");
-     background-size: cover;
-     background-repeat: no-repeat;
-     background-position: center;
-     background-attachment: fixed;
-     font-family: Arial, sans-serif;
-     margin: 0;
-     padding: 0;
- }
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu - Delicious Bites</title>
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            background-image: url("logo.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
 
- header {
-     background-color: #ca5454;
-     padding: 20px;
-     text-align: center;
-     color: white;
- }
+        header {
+            background-color: #ca5454;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
 
- header h1 {
-     margin: 0;
- }
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
 
- nav {
-     background-color: #fff;
-     padding: 10px;
-     text-align: center;
- }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #5b2020;
+            font-weight: bold;
+        }
 
- nav a {
-     margin: 0 15px;
-     text-decoration: none;
-     color: #5b2020;
-     /* Darker purple */
-     font-weight: bold;
- }
+        nav a:hover {
+            color: #ffa7a7;
+        }
 
- nav a:hover {
-     color: #ffa7a7;
-     /* Light purple on hover */
- }
+        .menu-section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: black;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
 
-     .menu-section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .menu-section h2 {
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-    }
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-    }
-    .menu-item-name {
-      font-weight: bold;
-    }
-    .menu-item-description {
-      font-style: italic;
-      font-size: 0.9em;
-      color: #666;
-    }
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-        </style>
-    </head>
+        .menu-section h2 {
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #ca5454;
+        }
 
-    <body>
-        <header>
-            <h1>Delicious Bites - Menu</h1>
-        </header>
-    
-        <nav>
-            <a href="homepage.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="menu.html">Menu</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        
-        <section class="menu-section">
-            <h2>Appetizers</h2>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Bruschetta</div>
-                    <div class="menu-item-description">Grilled bread with tomato, basil & olive oil</div>
-                </div>
-                <div>$6</div>
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .menu-item-name {
+            font-weight: bold;
+        }
+
+        .menu-item-description {
+            font-style: italic;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        #orderNowBtn,
+        #checkoutBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            background-color: #ca5454;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        #checkoutBtn {
+            right: 150px;
+            display: none;
+        }
+
+        #totalContainer {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background-color: white;
+            padding: 10px 15px;
+            border: 2px solid #ca5454;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ca5454;
+            z-index: 1000;
+            display: none;
+        }
+
+        .menu-section:first-of-type {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Delicious Bites - Menu</h1>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="menu-section">
+        <h2>Appetizers</h2>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Bruschetta</div>
+                <div class="menu-item-description">Grilled bread...</div>
             </div>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Caprese Salad</div>
-                    <div class="menu-item-description">Fresh mozzarella, tomatoes & basil</div>
-                </div>
-                <div>$8</div>
+            <div class="price">$6</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Caprese Salad</div>
+                <div class="menu-item-description">Fresh mozzarella, tomatoes & basil</div>
             </div>
-        </section>
-        
-        <section class="menu-section">
-            <h2>Main Courses</h2>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Spaghetti Carbonara</div>
-                    <div class="menu-item-description">Classic Roman pasta with pancetta and egg</div>
-                </div>
-                <div>$14</div>
+            <div class="price">$8</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Main Courses</h2>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Grilled Lemon Herb Salmon</div>
+                <div class="menu-item-description">Grilled bread with tomato, basil & olive oil</div>
             </div>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Margherita Pizza</div>
-                    <div class="menu-item-description">Tomato, mozzarella, and fresh basil</div>
-                </div>
-                <div>$12</div>
+            <div class="price">$6</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Spaghetti Carbonara</div>
+                <div class="menu-item-description">Classic Roman pasta with pancetta and egg</div>
             </div>
-        </section>
-        
-        <section class="menu-section">
-            <h2>Desserts</h2>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Tiramisu</div>
-                    <div class="menu-item-description">Coffee-flavored Italian dessert</div>
-                </div>
-                <div>$7</div>
+            <div class="price">$14</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Margherita Pizza</div>
+                <div class="menu-item-description">Tomato, mozzarella, and fresh basil</div>
             </div>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Panna Cotta</div>
-                    <div class="menu-item-description">Creamy dessert with berry sauce</div>
-                </div>
-                <div>$6</div>
+            <div class="price">$12</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Desserts</h2>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Tiramisu</div>
+                <div class="menu-item-description">Coffee-flavored Italian dessert</div>
             </div>
-        </section>
-        
-        <section class="menu-section">
-            <h2>Beverages</h2>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Espresso</div>
-                </div>
-                <div>$3</div>
+            <div class="price">$7</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Panna Cotta</div>
+                <div class="menu-item-description">Creamy dessert with berry sauce</div>
             </div>
-            <div class="menu-item">
-                <div>
-                    <div class="menu-item-name">Chianti (Glass)</div>
-                </div>
-                <div>$9</div>
+            <div class="price">$6</div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <h2>Beverages</h2>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Espresso</div>
             </div>
-        </section>
-        </body>
-</html>
+            <div class="price">$3</div>
+        </div>
+
+        <div class="menu-item">
+            <div>
+                <div class="menu-item-name">Chianti (Glass)</div>
+            </div>
+            <div class="price">$9</div>
+        </div>
+    </section>
+
+    <button id="orderNowBtn">Order Now</button>
+    <button id="checkoutBtn">Check Out</button>
+    <div id="totalContainer">Total: $0.00</div>
+
+    <script>
+        const orderNowBtn = document.getElementById('orderNowBtn');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const totalContainer = document.getElementById('totalContainer');
+        const menuItems = document.querySelectorAll('.menu-item');
+        let orderingEnabled = false;
+
+        // Get price from a menu item element reliably
+        function getItemPrice(menuItem) {
+                const priceDiv = menuItem.querySelector('.price');
+                if (!priceDiv) return 0;
+                const priceText = priceDiv.textContent.trim().replace('$', '');
+                return parseFloat(priceText) || 0;
+            }
+
+        // Update the total price display
+        function updateTotal() {
+                let total = 0;
+                document.querySelectorAll('.order-checkbox:checked').forEach(cb => {
+                    const item = cb.closest('.menu-item');
+                    const price = getItemPrice(item);
+                    console.log("Item price:", price);  // <-- debug line
+                    total += price;
+                });
+                console.log("Total:", total);  // <-- debug line
+                totalContainer.textContent = `Total: $${total.toFixed(2)}`;
+            }
+
+        orderNowBtn.addEventListener('click', () => {
+            orderingEnabled = !orderingEnabled;
+
+            if (orderingEnabled) {
+                orderNowBtn.textContent = "Cancel Order";
+                checkoutBtn.style.display = "inline-block";
+                totalContainer.style.display = "block";
+
+                menuItems.forEach(item => {
+                    if (!item.querySelector('.order-checkbox')) {
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.classList.add('order-checkbox');
+                        checkbox.style.marginRight = '10px';
+
+                        checkbox.addEventListener('change', updateTotal);
+
+                        // Insert checkbox as the first child inside .menu-item
+                        item.prepend(checkbox);
+                    }
+                });
+
+                updateTotal();
+            } else {
+                orderNowBtn.textContent = "Order Now";
+                checkoutBtn.style.display = "none";
+                totalContainer.style.display = "none";
+
+                // Remove checkboxes and reset total
+                document.querySelectorAll('.order-checkbox').forEach(cb => cb.remove());
+                totalContainer.textContent = "Total: $0.00";
+            }
+        });
+
+        checkoutBtn.addEventListener('click', () => {
+            const selectedItems = [];
+            document.querySelectorAll('.order-checkbox:checked').forEach(cb => {
+                const itemName = cb.parentElement.querySelector('.menu-item-name')?.textContent || "Unnamed Item";
+                selectedItems.push(itemName);
+            });
+
+            if (selectedItems.length === 0) {
+                alert("Please select at least one item to check out.");
+            } else {
+                alert("You ordered:\n- " + selectedItems.join("\n- "));
+
+                // Reset everything after checkout
+                orderingEnabled = false;
+                orderNowBtn.textContent = "Order Now";
+                checkoutBtn.style.display = "none";
+                totalContainer.style.display = "none";
+                totalContainer.textContent = "Total: $0.00";
+
+                document.querySelectorAll('.order-checkbox').forEach(cb => cb.remove());
+            }
+        });
+    </script>
+</body>   
+
+</html>   
