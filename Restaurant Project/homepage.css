@@ -132,3 +132,56 @@
      margin: 0 auto 15px auto;
      padding-top: 10px;
  }
+
+ .contact-hours-section {
+     background-color: #f9f9f9;
+     padding: 60px 20px;
+     font-family: 'Segoe UI', sans-serif;
+     color: #333;
+ }
+
+ .contact-hours-container {
+     max-width: 1000px;
+     margin: 0 auto;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 40px;
+     justify-content: space-between;
+ }
+
+ .hours,
+ .contact {
+     flex: 1 1 45%;
+ }
+
+ h2 {
+     font-size: 24px;
+     margin-bottom: 15px;
+     color: #222;
+ }
+
+ ul {
+     list-style: none;
+     padding: 0;
+ }
+
+ ul li {
+     margin-bottom: 10px;
+     line-height: 1.6;
+ }
+
+ .contact p {
+     margin-bottom: 10px;
+     line-height: 1.6;
+ }
+
+ @media (max-width: 768px) {
+     .contact-hours-container {
+         flex-direction: column;
+     }
+
+     .hours,
+     .contact {
+         flex: 1 1 100%;
+     }
+ }

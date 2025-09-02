@@ -117,6 +117,30 @@
         .menu-section:first-of-type {
             margin-top: 40px;
         }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            color: black;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
     </style>
 </head>
 
@@ -160,7 +184,7 @@
                 <div class="menu-item-name">Grilled Lemon Herb Salmon</div>
                 <div class="menu-item-description">Grilled bread with tomato, basil & olive oil</div>
             </div>
-            <div class="price">$6</div>
+            <div class="price">$15</div>
         </div>
 
         <div class="menu-item">
@@ -221,6 +245,16 @@
     <button id="orderNowBtn">Order Now</button>
     <button id="checkoutBtn">Check Out</button>
     <div id="totalContainer">Total: $0.00</div>
+
+    <div id="deliveryModal" class="modal">
+        <div class="modal-content">
+            <h3>Choose Order Type</h3>
+            <label><input type="radio" name="orderType" value="pickup" checked> Pickup</label><br>
+            <label><input type="radio" name="orderType" value="delivery"> Delivery (+$5)</label><br><br>
+            <div id="finalTotal" style="margin-bottom: 10px;"></div>
+            <button id="confirmBtn">Confirm</button>
+        </div>
+    </div>
 
     <script>
         const orderNowBtn = document.getElementById('orderNowBtn');
@@ -285,27 +319,65 @@
         });
 
         checkoutBtn.addEventListener('click', () => {
-            const selectedItems = [];
-            document.querySelectorAll('.order-checkbox:checked').forEach(cb => {
-                const itemName = cb.parentElement.querySelector('.menu-item-name')?.textContent || "Unnamed Item";
-                selectedItems.push(itemName);
+                const selectedItems = [];
+                let baseTotal = 0;
+
+                document.querySelectorAll('.order-checkbox:checked').forEach(cb => {
+                    const item = cb.closest('.menu-item');
+                    const itemName = item.querySelector('.menu-item-name')?.textContent || "Unnamed Item";
+                    const price = getItemPrice(item);
+                    selectedItems.push(itemName);
+                    baseTotal += price;
+                });
+
+                if (selectedItems.length === 0) {
+                    alert("Please select at least one item to check out.");
+                    return;
+                }
+
+                // Show modal
+                const deliveryModal = document.getElementById('deliveryModal');
+                const finalTotal = document.getElementById('finalTotal');
+                const confirmBtn = document.getElementById('confirmBtn');
+
+                deliveryModal.style.display = 'block';
+
+                function updateFinalTotal() {
+                    const selectedType = document.querySelector('input[name="orderType"]:checked').value;
+                    const final = selectedType === 'delivery' ? baseTotal + 5 : baseTotal;
+                    finalTotal.textContent = `Final Total: $${final.toFixed(2)}`;
+                }
+
+                // Update total on change
+                document.querySelectorAll('input[name="orderType"]').forEach(radio => {
+                    radio.addEventListener('change', updateFinalTotal);
+                });
+
+                updateFinalTotal();
+
+                confirmBtn.onclick = function () {
+                    const orderType = document.querySelector('input[name="orderType"]:checked').value;
+                    const extraNote = orderType === 'delivery' ? 'Your food will be delivered!' : 'Please pick up your order.';
+
+                    alert(`Order successful!\n\nItems:\n- ${selectedItems.join('\n- ')}\n\n${extraNote}`);
+
+                    // Reset everything
+                    deliveryModal.style.display = 'none';
+                    orderingEnabled = false;
+                    orderNowBtn.textContent = "Order Now";
+                    checkoutBtn.style.display = "none";
+                    totalContainer.style.display = "none";
+                    totalContainer.textContent = "Total: $0.00";
+                    document.querySelectorAll('.order-checkbox').forEach(cb => cb.remove());
+                };
             });
 
-            if (selectedItems.length === 0) {
-                alert("Please select at least one item to check out.");
-            } else {
-                alert("You ordered:\n- " + selectedItems.join("\n- "));
-
-                // Reset everything after checkout
-                orderingEnabled = false;
-                orderNowBtn.textContent = "Order Now";
-                checkoutBtn.style.display = "none";
-                totalContainer.style.display = "none";
-                totalContainer.textContent = "Total: $0.00";
-
-                document.querySelectorAll('.order-checkbox').forEach(cb => cb.remove());
-            }
-        });
+            window.onclick = function (event) {
+                    const modal = document.getElementById('deliveryModal');
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
     </script>
 </body>   
 
