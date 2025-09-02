@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Delicious Bites</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        header {
+            background-color: #ca5454;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #5b2020;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ca5454;
+        }
+
+        .about-section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-text {
+            flex: 1 1 400px;
+        }
+
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #ca5454;
+        }
+
+        .about-text p {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .about-image {
+            flex: 1 1 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #777;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text,
+            .about-image {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>About Delicious Bites</h1>
+    </header>
+
+    <nav>
+        <a href="homepage.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <section class="about-section">
+        <div class="about-text">
+            <h2>Our Story</h2>
+            <p>
+                At Delicious Bites, we're passionate about creating unforgettable dining experiences.
+                Our journey began with a simple idea: combine fresh, high-quality ingredients with the warmth of
+                homemade cooking.
+                Since opening our doors, we've become a local favorite known for our flavorful dishes, cozy atmosphere,
+                and friendly service.
+            </p>
+            <p>
+                Whether you're stopping by for a quick bite or celebrating a special occasion, we aim to make every
+                visit feel like home.
+                From our handcrafted pastas to our decadent desserts, every item on our menu is made with love.
+            </p>
+        </div>
+
+        <div class="about-image">
+            <img src="restaurant.png" alt="Delicious Bites Interior" />
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 Delicious Bites. All rights reserved.
+    </footer>
+</body>
+
+</html>

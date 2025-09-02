@@ -220,6 +220,21 @@
             background-color: #a83838;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @keyframes highlightGlow {
+            0% { background-color: #ffcccc; }
+            50% { background-color: #ca5454; color: white; }
+            100% { background-color: transparent; }
+        }
+
+        .menu-item.highlighted {
+            animation: highlightGlow 2s ease-in-out;
+            border-radius: 6px;
+        }
+
     </style>
 </head>
 
@@ -258,7 +273,7 @@
     <section class="menu-section">
         <h2>Main Courses</h2>
 
-        <div class="menu-item">
+        <div class="menu-item" id="salmon">
             <div>
                 <div class="menu-item-name">Grilled Lemon Herb Salmon</div>
                 <div class="menu-item-description">Grilled bread with tomato, basil & olive oil</div>
@@ -471,6 +486,27 @@
                         modal.style.display = "none";
                     }
                 };
+
+                 window.addEventListener('DOMContentLoaded', () => {
+                        // Get the hash from the URL (e.g., "#salmon")
+                        const hash = window.location.hash;
+
+                        if (hash) {
+                            const target = document.querySelector(hash);
+                            if (target && target.classList.contains('menu-item')) {
+                                // Add the class that triggers animation
+                                target.classList.add('highlighted');
+
+                                // Optional: Scroll again to it (in case it was already on screen)
+                                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                                // Remove highlight class after animation ends (2s)
+                                setTimeout(() => {
+                                    target.classList.remove('highlighted');
+                                }, 2000);
+                            }
+                        }
+                    });
     </script>
 </body>   
 
