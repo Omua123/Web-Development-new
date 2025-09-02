@@ -185,3 +185,15 @@
          flex: 1 1 100%;
      }
  }
+
+ footer {
+     text-align: center;
+     padding: 20px;
+     background-color: #f4f4f4;
+     color: #777;
+     margin-top: 60px;
+ }
+
+ .featured-meals {
+     margin-bottom: 60px;
+ }
